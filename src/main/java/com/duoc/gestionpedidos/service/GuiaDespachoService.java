@@ -91,7 +91,14 @@ public class GuiaDespachoService {
             guia.setCliente(cliente);
             guia.setEmpleado(empleado);
             guia.setFecha(guiaDespachoDTO.getFecha());
-            return toDTO(guiaDespachoRepository.save(guia));
+
+            GuiaDespachoResponseDTO guiaActualizada = toDTO(guiaDespachoRepository.save(guia));
+            String key = subirGuiaDespacho(guia);
+            if(key != null){
+                guiaActualizada.setKey(key);
+            }
+
+            return guiaActualizada;
         }).orElse(null);
     }
 

@@ -4,9 +4,11 @@ import java.nio.charset.StandardCharsets;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import com.duoc.gestionpedidos.model.GuiaDespachoEntity;
 
+@Service
 public class FileService {
 
     @Value("${s3.bucket}")

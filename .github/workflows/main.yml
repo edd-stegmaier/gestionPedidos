@@ -69,5 +69,6 @@ jobs:
               -e AWS_SESSION_TOKEN='${{ secrets.AWS_SESSION_TOKEN }}' \
               -e AWS_REGION='us-east-1' \
               -v /opt/oracle/wallet:/opt/oracle/wallet:ro \
+              -v /home/ec2-user/efs:/app/efs \
               ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
           EOF

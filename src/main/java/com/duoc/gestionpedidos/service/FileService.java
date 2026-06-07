@@ -41,7 +41,7 @@ public class FileService {
         sb.append("Total: ").append(guiaDespacho.getProducto().getValor()).append("\n");
         sb.append("--------------------------------\n");
         sb.append("Cliente: ").append(guiaDespacho.getCliente().getNombre()).append("\n");
-        sb.append("Transportista: ").append(guiaDespacho.getCliente().getNombre()).append("\n");
+        sb.append("Transportista: ").append(guiaDespacho.getEmpleado().getNombre()).append("\n");
         sb.append("--------------------------------\n");
 
         byte[] archivo = sb.toString().getBytes(StandardCharsets.UTF_8);

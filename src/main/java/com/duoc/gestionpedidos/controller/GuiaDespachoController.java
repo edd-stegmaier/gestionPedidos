@@ -73,12 +73,29 @@ public class GuiaDespachoController {
         return ResponseEntity.notFound().build();
     }
 
+    // buscar guias por transportista
+    @GetMapping("/transportista/{id}")
+    public ResponseEntity<List<GuiaDespachoResponseDTO>> obtenerGuiasPorTransportista(@PathVariable Long id){
+        return ResponseEntity.ok(guiaDespachoService.obtenerGuiaDeDespachoTransportista(id));
+    }
+
+    // buscar guias por fecha
+    @GetMapping("/fecha/{fecha}")
+    public ResponseEntity<List<GuiaDespachoResponseDTO>> obtenerGuiasPorFecha(@PathVariable String fecha){
+        try {
+            java.time.LocalDate localDate = java.time.LocalDate.parse(fecha);
+            return ResponseEntity.ok(guiaDespachoService.obtenerGuiaDeDespachoFecha(localDate));
+        } catch (java.time.format.DateTimeParseException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
     // descargar guia
     @GetMapping("/descargar/{id}")
     public ResponseEntity<byte[]> descargarGuiaDespacho(@PathVariable Long id){
         byte[] archivo = guiaDespachoService.descargarGuiaDespacho(id);
 
-        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + "guia" + id + "\"")
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + "guia" + id + ".txt" + "\"")
         .contentType(MediaType.APPLICATION_OCTET_STREAM).body(archivo);
 
     }

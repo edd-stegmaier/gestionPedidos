@@ -51,9 +51,9 @@ public class FileService {
     private String generarGuiaS3Key(GuiaDespachoEntity guiaDespacho){
         String transportistaId = guiaDespacho.getEmpleado().getId().toString();
         String guiaId = guiaDespacho.getId().toString();
-        String fecha = Integer.toString(guiaDespacho.getFecha().getYear()).concat(guiaDespacho.getFecha().getMonth().toString());
+        String fecha = Integer.toString(guiaDespacho.getFecha().getYear()).concat(Integer.toString(guiaDespacho.getFecha().getMonthValue()));
 
-        return "/".concat(fecha).concat("/").concat("transportista").concat(transportistaId)
+        return fecha.concat("/").concat("transportista").concat(transportistaId)
             .concat("/").concat("guia").concat(guiaId).concat(".txt");
     }
 

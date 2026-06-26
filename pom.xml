@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.duoc</groupId>
 	<artifactId>gestionPedidos</artifactId>
-	<version>1.0.0</version>
+	<version>1.2.0</version>
 	<name/>
 	<description/>
 	<url/>
@@ -109,6 +109,29 @@
 		<dependency>
 			<groupId>software.amazon.awssdk</groupId>
 			<artifactId>s3</artifactId>
+		</dependency>
+		<!--  S5 - Security Config  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-resource-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-jose</artifactId> <!--  JSON Object Signing and Encryption  -->
 		</dependency>
 	</dependencies>
 

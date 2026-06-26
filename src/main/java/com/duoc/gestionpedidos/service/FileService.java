@@ -64,7 +64,7 @@ public class FileService {
 
         s3Service.upload(S3bucket, key, archivo);
 
-        efsService.saveToEfs(key, archivo);
+        //efsService.saveToEfs(key, archivo);
 
         return key;
     }

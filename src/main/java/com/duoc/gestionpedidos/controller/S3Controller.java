@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.duoc.gestionpedidos.dto.S3ObjectDTO;
-import com.duoc.gestionpedidos.service.EfsService;
+//import com.duoc.gestionpedidos.service.EfsService;
 import com.duoc.gestionpedidos.service.S3Service;
 
 import java.util.List;
@@ -21,8 +21,8 @@ public class S3Controller {
     @Autowired
     private S3Service s3Service;
 
-    @Autowired
-    private EfsService efsService;
+    //@Autowired
+    //private EfsService efsService;
 
     // Listar objetos de un bucket
     @GetMapping("/{bucket}/objects")
@@ -46,7 +46,7 @@ public class S3Controller {
     public ResponseEntity<Void> uploadObject(@PathVariable String bucket, @RequestParam String key,
         @RequestParam("file") MultipartFile file){
         try{
-            efsService.saveToEfs(key, file);
+            //efsService.saveToEfs(key, file);
             s3Service.upload(bucket, key, file);
 
             return ResponseEntity.status(HttpStatus.CREATED).build();
